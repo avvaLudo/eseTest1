@@ -1,0 +1,39 @@
+{
+ "xsappname": "IncidentManagement",
+ "tenant-mode": "dedicated",
+ "scopes": [
+  {
+   "name": "$XSAPPNAME.Admin",
+   "description": "Admin"
+  }
+ ],
+ "attributes": [],
+ "role-templates": [
+  {
+   "name": "RoleTemplate",
+   "description": "generated",
+   "scope-references": [
+    "$XSAPPNAME.Admin"
+   ],
+   "attribute-references": []
+  }
+ ],
+ "role-collections": [
+  {
+   "name": "RoleCollection",
+   "description": "RoleColl",
+   "role-template-references": [
+    "$XSAPPNAME.RoleTemplate"
+   ]
+  }
+ ],
+ "oauth2-configuration": {
+  "credential-types": [
+   "binding-secret",
+   "x509"
+  ],
+  "redirect-uris": [
+   "https://*.applicationstudio.cloud.sap/**"
+  ]
+ }
+}

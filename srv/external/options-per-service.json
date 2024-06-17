@@ -1,0 +1,7 @@
+{
+  "srv/external/MovieService.xml": {
+    "packageName": "movieservice",
+    "directoryName": "MovieService",
+    "basePath": "/odata/v4"
+  }
+}

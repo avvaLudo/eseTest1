@@ -1,0 +1,67 @@
+{
+  "name": "IncidentManagement",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.12.10",
+    "@cap-js/cds-typer": "^0.21.2",
+    "@sap-cloud-sdk/connectivity": "^3.15.0",
+    "@sap-cloud-sdk/http-client": "^3.15.0",
+    "@sap-cloud-sdk/odata-v4": "^3.15.0",
+    "@sap/approuter": "^16.5.1",
+    "@sap/cds": "^7",
+    "@sap/cds-hana": "^2",
+    "@sap/xssec": "^3",
+    "@types/node": "^20.14.2",
+    "express": "^4",
+    "helmet": "^7.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap-cloud-sdk/generator": "^3.15.0",
+    "@sap/cds-dk": "^7",
+    "@sap/eslint-plugin-cds": "^3",
+    "eslint": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "engines": {
+    "node": "^20"
+  },
+  "cds": {
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "[development]": {
+        "auth": {
+          "strategy": "mocked",
+          "users": {
+            "utente": {
+              "password": "1234",
+              "roles": [
+                "Admin"
+              ]
+            }
+          }
+        }
+      },
+      "db": "hana",
+      "fabio": {
+        "kind": "odata",
+        "model": "srv/external/fabio"
+      },
+      "[backend]": {
+        "credentials": {
+          "destination": "https://1577346ftrial-dev-esfierrocap-srv.cfapps.us10-001.hana.ondemand.com"
+        }
+      }
+    }
+  }
+}

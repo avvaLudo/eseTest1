@@ -1,0 +1,120 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.9.2"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "fabio.getIncident": {
+   "kind": "function",
+   "@cds.external": true,
+   "returns": {
+    "items": {
+     "type": "cds.LargeString",
+     "notNull": true
+    }
+   }
+  },
+  "fabio.sum": {
+   "kind": "function",
+   "@cds.external": true,
+   "returns": {
+    "type": "cds.Integer"
+   }
+  },
+  "fabio.add": {
+   "kind": "action",
+   "@cds.external": true,
+   "params": {
+    "x": {
+     "type": "cds.Integer"
+    },
+    "y": {
+     "type": "cds.Integer"
+    }
+   },
+   "returns": {
+    "type": "cds.Integer"
+   }
+  },
+  "fabio.Movie": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": false,
+   "elements": {
+    "MovieID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 5,
+     "notNull": true
+    },
+    "title": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "author": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "genre": {
+     "type": "cds.String",
+     "length": 40
+    },
+    "year": {
+     "type": "cds.Integer"
+    }
+   }
+  },
+  "fabio.Cinema": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "CinID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 5,
+     "notNull": true
+    },
+    "Name": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "Location": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "RoomsNo": {
+     "type": "cds.Integer"
+    }
+   }
+  },
+  "fabio.Ticket": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "TicketNumber": {
+     "key": true,
+     "type": "cds.String",
+     "length": 5,
+     "notNull": true
+    },
+    "Room": {
+     "type": "cds.Integer"
+    },
+    "Day": {
+     "type": "cds.DateTime",
+     "@odata.Precision": 0,
+     "@odata.Type": "Edm.DateTimeOffset"
+    },
+    "Sold": {
+     "type": "cds.Boolean"
+    }
+   }
+  },
+  "fabio": {
+   "kind": "service",
+   "@cds.external": true
+  }
+ }
+}

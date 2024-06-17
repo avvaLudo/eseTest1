@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="MovieService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="Movie" EntityType="MovieService.Movie"/>
+        <EntitySet Name="Cinema" EntityType="MovieService.Cinema"/>
+        <EntitySet Name="Ticket" EntityType="MovieService.Ticket"/>
+        <FunctionImport Name="getIncident" Function="MovieService.getIncident"/>
+        <FunctionImport Name="sum" Function="MovieService.sum"/>
+        <ActionImport Name="add" Action="MovieService.add"/>
+      </EntityContainer>
+      <EntityType Name="Movie">
+        <Key>
+          <PropertyRef Name="MovieID"/>
+        </Key>
+        <Property Name="MovieID" Type="Edm.String" MaxLength="5" Nullable="false"/>
+        <Property Name="title" Type="Edm.String" MaxLength="100"/>
+        <Property Name="author" Type="Edm.String" MaxLength="50"/>
+        <Property Name="genre" Type="Edm.String" MaxLength="40"/>
+        <Property Name="year" Type="Edm.Int32"/>
+      </EntityType>
+      <EntityType Name="Cinema">
+        <Key>
+          <PropertyRef Name="CinID"/>
+        </Key>
+        <Property Name="CinID" Type="Edm.String" MaxLength="5" Nullable="false"/>
+        <Property Name="Name" Type="Edm.String" MaxLength="100"/>
+        <Property Name="Location" Type="Edm.String" MaxLength="100"/>
+        <Property Name="RoomsNo" Type="Edm.Int32"/>
+      </EntityType>
+      <EntityType Name="Ticket">
+        <Key>
+          <PropertyRef Name="TicketNumber"/>
+        </Key>
+        <Property Name="TicketNumber" Type="Edm.String" MaxLength="5" Nullable="false"/>
+        <Property Name="Room" Type="Edm.Int32"/>
+        <Property Name="Day" Type="Edm.DateTimeOffset"/>
+        <Property Name="Sold" Type="Edm.Boolean"/>
+      </EntityType>
+      <Function Name="getIncident" IsBound="false" IsComposable="false">
+        <ReturnType Type="Collection(Edm.String)" Nullable="false"/>
+      </Function>
+      <Function Name="sum" IsBound="false" IsComposable="false">
+        <ReturnType Type="Edm.Int32"/>
+      </Function>
+      <Action Name="add" IsBound="false">
+        <Parameter Name="x" Type="Edm.Int32"/>
+        <Parameter Name="y" Type="Edm.Int32"/>
+        <ReturnType Type="Edm.Int32"/>
+      </Action>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

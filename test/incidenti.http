@@ -1,0 +1,100 @@
+@server=http://localhost:4004
+
+GET {{server}}/odata/v4/processor/Incidenti
+Authorization: Basic utente:1234
+###
+POST {{server}}/odata/v4/processor/Incidenti
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    
+    "ID":22,
+    "title":"Albero",
+    "description":"albero spezzato",
+    "status":"Aperto",
+    "priority":"media"
+}
+###
+PATCH  {{server}}/odata/v4/processor/Incidenti/11
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    
+    "status":"chiuso"
+}
+
+###
+DELETE {{server}}/odata/v4/processor/Incidenti/22
+Authorization: Basic utente:1234
+
+
+###
+GET http://localhost:4004/odata/v4/processor/getOpenIncidentsCount()
+Authorization: Basic utente:1234
+
+###
+POST http://localhost:4004/odata/v4/processor/addIncident
+Authorization: Basic utente:1234
+Content-Type: application/json
+{
+    
+    "ID": 44,
+    "title": "Incendio Bosco",
+    "description": "Bosco in fiamme",
+    "status": "Aperto",
+    "priority": "Media"
+
+}
+###
+GET {{server}}/health
+
+###
+GET {{server}}/odata/v4/processor/$metadata
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+###
+GET {{server}}/odata/v4/processor/getIncident()
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+
+###
+GET {{server}}/odata/v4/processor/Movie
+Authorization: Basic utente:1234
+
+###
+POST {{server}}/odata/v4/processor/Movie
+Authorization: Basic utente:1234
+Content-Type: application/json 
+
+{
+    
+    "MovieID": "20",
+    "title": "Fantozzi la vendetta",
+    "author": "Luigi Piedi",
+    "genre": "Comico",
+    "year": 2022
+
+}
+
+###
+DELETE {{server}}/odata/v4/processor/Movie/20
+Authorization: Basic utente:1234
+
+
+###
+PATCH  {{server}}/odata/v4/processor/Movie/20
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    
+    "genre":"drammatico"
+}
+
+###
+GET {{server}}/odata/v4/processor/testOdata()
+Authorization: Basic utente:1234
