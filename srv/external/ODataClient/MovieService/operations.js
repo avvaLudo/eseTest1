@@ -14,7 +14,7 @@ const odata_v4_1 = require("@sap-cloud-sdk/odata-v4");
  */
 function getIncident(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
     const params = {};
-    return new odata_v4_1.OperationRequestBuilder('/odata/v4', 'getIncident', data => (0, odata_v4_1.transformReturnValueForEdmTypeList)(data, val => (0, odata_v4_1.edmToTs)(val, 'Edm.String', deSerializers)), params, deSerializers, 'function');
+    return new odata_v4_1.OperationRequestBuilder('/odata/v4/movie', 'getIncident', data => (0, odata_v4_1.transformReturnValueForEdmTypeList)(data, val => (0, odata_v4_1.edmToTs)(val, 'Edm.String', deSerializers)), params, deSerializers, 'function');
 }
 exports.getIncident = getIncident;
 /**
@@ -24,7 +24,7 @@ exports.getIncident = getIncident;
  */
 function sum(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
     const params = {};
-    return new odata_v4_1.OperationRequestBuilder('/odata/v4', 'sum', data => (0, odata_v4_1.transformReturnValueForEdmType)(data, val => (0, odata_v4_1.edmToTs)(val.value, 'Edm.Int32', deSerializers)), params, deSerializers, 'function');
+    return new odata_v4_1.OperationRequestBuilder('/odata/v4/movie', 'sum', data => (0, odata_v4_1.transformReturnValueForEdmType)(data, val => (0, odata_v4_1.edmToTs)(val.value, 'Edm.Int32', deSerializers)), params, deSerializers, 'function');
 }
 exports.sum = sum;
 /**
@@ -37,7 +37,7 @@ function add(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
         x: new odata_v4_1.OperationParameter('x', 'Edm.Int32', parameters.x),
         y: new odata_v4_1.OperationParameter('y', 'Edm.Int32', parameters.y)
     };
-    return new odata_v4_1.OperationRequestBuilder('/odata/v4', 'add', data => (0, odata_v4_1.transformReturnValueForEdmType)(data, val => (0, odata_v4_1.edmToTs)(val.value, 'Edm.Int32', deSerializers)), params, deSerializers, 'action');
+    return new odata_v4_1.OperationRequestBuilder('/odata/v4/movie', 'add', data => (0, odata_v4_1.transformReturnValueForEdmType)(data, val => (0, odata_v4_1.edmToTs)(val.value, 'Edm.Int32', deSerializers)), params, deSerializers, 'action');
 }
 exports.add = add;
 exports.operations = {

@@ -38,7 +38,7 @@ export function getIncident<
   const params = {};
 
   return new OperationRequestBuilder(
-    '/odata/v4',
+    '/odata/v4/movie',
     'getIncident',
     data =>
       transformReturnValueForEdmTypeList(data, val =>
@@ -73,7 +73,7 @@ export function sum<
   const params = {};
 
   return new OperationRequestBuilder(
-    '/odata/v4',
+    '/odata/v4/movie',
     'sum',
     data =>
       transformReturnValueForEdmType(data, val =>
@@ -120,7 +120,7 @@ export function add<
   };
 
   return new OperationRequestBuilder(
-    '/odata/v4',
+    '/odata/v4/movie',
     'add',
     data =>
       transformReturnValueForEdmType(data, val =>

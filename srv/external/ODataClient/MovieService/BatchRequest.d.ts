@@ -50,7 +50,7 @@ export declare function changeset<DeSerializersT extends DeSerializers>(
 export declare function changeset<DeSerializersT extends DeSerializers>(
   requests: Array<WriteMovieServiceRequestBuilder<DeSerializersT>>
 ): BatchChangeSet<DeSerializersT>;
-export declare const defaultMovieServicePath = '/odata/v4';
+export declare const defaultMovieServicePath = '/odata/v4/movie';
 export type ReadMovieServiceRequestBuilder<
   DeSerializersT extends DeSerializers
 > =

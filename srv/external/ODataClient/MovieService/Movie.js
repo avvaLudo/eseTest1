@@ -23,7 +23,7 @@ Movie._entityName = 'Movie';
 /**
  * Default url path for the according service.
  */
-Movie._defaultBasePath = '/odata/v4';
+Movie._defaultBasePath = '/odata/v4/movie';
 /**
  * All key fields of the Movie entity
  */

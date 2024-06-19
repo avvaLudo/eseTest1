@@ -4,7 +4,7 @@
  },
  "$version": "2.0",
  "definitions": {
-  "fabio.getIncident": {
+  "MovieService.getIncident": {
    "kind": "function",
    "@cds.external": true,
    "returns": {
@@ -14,14 +14,14 @@
     }
    }
   },
-  "fabio.sum": {
+  "MovieService.sum": {
    "kind": "function",
    "@cds.external": true,
    "returns": {
     "type": "cds.Integer"
    }
   },
-  "fabio.add": {
+  "MovieService.add": {
    "kind": "action",
    "@cds.external": true,
    "params": {
@@ -36,7 +36,7 @@
     "type": "cds.Integer"
    }
   },
-  "fabio.Movie": {
+  "MovieService.Movie": {
    "kind": "entity",
    "@cds.external": true,
    "@cds.persistence.skip": false,
@@ -64,7 +64,7 @@
     }
    }
   },
-  "fabio.Cinema": {
+  "MovieService.Cinema": {
    "kind": "entity",
    "@cds.external": true,
    "@cds.persistence.skip": true,
@@ -88,7 +88,7 @@
     }
    }
   },
-  "fabio.Ticket": {
+  "MovieService.Ticket": {
    "kind": "entity",
    "@cds.external": true,
    "@cds.persistence.skip": true,
@@ -112,7 +112,7 @@
     }
    }
   },
-  "fabio": {
+  "MovieService": {
    "kind": "service",
    "@cds.external": true
   }

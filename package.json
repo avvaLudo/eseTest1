@@ -53,13 +53,13 @@
         }
       },
       "db": "hana",
-      "fabio": {
+      "MovieService": {
         "kind": "odata",
-        "model": "srv/external/fabio"
+        "model": "srv/external/MovieService"
       },
       "[backend]": {
         "credentials": {
-          "destination": "https://1577346ftrial-dev-esfierrocap-srv.cfapps.us10-001.hana.ondemand.com"
+          "destination": "https://avvale-dev-zyotztxl-devstudent-esfierrocap-srv.cfapps.eu10.hana.ondemand.com"
         }
       }
     }

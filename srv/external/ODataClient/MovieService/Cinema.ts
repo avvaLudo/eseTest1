@@ -25,7 +25,7 @@ export class Cinema<T extends DeSerializers = DefaultDeSerializers>
   /**
    * Default url path for the according service.
    */
-  static _defaultBasePath = '/odata/v4';
+  static _defaultBasePath = '/odata/v4/movie';
   /**
    * All key fields of the Cinema entity
    */

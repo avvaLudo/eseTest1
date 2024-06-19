@@ -40,15 +40,46 @@ module.exports = cds.service.impl(async function () {
     });
 
     module.exports = cds.service.impl(async function () {
-        const service = await cds.connect.to('fabio');
-        this.on('READ', Movie, async (request) => {
+        const service = await cds.connect.to('movieService');
+        this.on('*', Movie, async (request) => {
             return service.run(request.query);
         });
     });
 
     this.on('testOdata', async (request) => {
-        const { cinemaApi } = movieService();
-        return await cinemaApi.requestBuilder().getAll().execute({ destinationName: 'calltest2' });
+        const { movieApi } = movieService();
+        return await movieApi.requestBuilder().getAll().execute({ destinationName: 'fabioDest' });
     });
 
+    this.on('testOdataCreate', async (request) => {
+        const { movieApi } = movieService();
+        const movie =  movieApi.entityBuilder().movieId('100').title('Pippo e pluto in vacanza').author('Walt Disney').genre('per bambini').year('2000').build();
+        await movieApi.requestBuilder().create(movie).execute({destinationName:'fabioDest'});
+    });
+
+
+    this.on('testOdataCreateDy', async (request) =>{
+        const { movieApi } = movieService();
+        const {MovieID, title, author, genre, year} = request.data;
+        const movie =  movieApi.entityBuilder().movieId(MovieID).title(title).author(author).genre(genre).year(year).build();
+        await movieApi.requestBuilder().create(movie).execute({destinationName:'fabioDest'});
+    });
+
+
+    this.on('testOdataUpdateG', async (request)=>{
+        const { movieApi } = movieService();
+        const {MovieID, genre} = request.data;
+        const movie = await movieApi.requestBuilder().getByKey(MovieID).execute({ destinationName: 'fabioDest' });
+        movie.genre = genre;
+        await movieApi.requestBuilder().update(movie).execute({destinationName:'fabioDest'});
+    });
+
+
+    this.on('testOdataDelete', async(request)=>{
+        const { movieApi } = movieService();
+        const {MovieID} = request.data;
+        const movie = await movieApi.requestBuilder().getByKey(MovieID).execute({destinationName:'fabioDest'});
+        await movieApi.requestBuilder().delete(movie).execute({destinationName:'fabioDest'});
+    });
 });
+

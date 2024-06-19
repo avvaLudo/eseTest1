@@ -16,5 +16,5 @@ function changeset(first, ...rest) {
     return new odata_v4_1.BatchChangeSet((0, util_1.transformVariadicArgumentToArray)(first, rest));
 }
 exports.changeset = changeset;
-exports.defaultMovieServicePath = '/odata/v4';
+exports.defaultMovieServicePath = '/odata/v4/movie';
 //# sourceMappingURL=BatchRequest.js.map

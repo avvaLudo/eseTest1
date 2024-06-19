@@ -38,6 +38,7 @@ Authorization: Basic utente:1234
 POST http://localhost:4004/odata/v4/processor/addIncident
 Authorization: Basic utente:1234
 Content-Type: application/json
+
 {
     
     "ID": 44,
@@ -98,3 +99,50 @@ Content-Type: application/json
 ###
 GET {{server}}/odata/v4/processor/testOdata()
 Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+
+
+
+###
+POST {{server}}/odata/v4/processor/testOdataCreate
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+###
+POST {{server}}/odata/v4/processor/testOdataCreateDy
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+{
+    
+    "MovieID": "258",
+    "title": "prova prova 2",
+    "author": "Carlo Verdone",
+    "genre": "Comico",
+    "year": 1997
+
+}
+
+###
+POST {{server}}/odata/v4/processor/testOdataUpdateG
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+{
+
+    "MovieID": "258",
+    "genre": "fantasy"
+}
+
+###
+POST {{server}}/odata/v4/processor/testOdataDelete
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+{
+
+    "MovieID": "250"
+
+}
+

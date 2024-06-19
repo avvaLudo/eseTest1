@@ -82,7 +82,7 @@ export function changeset<DeSerializersT extends DeSerializers>(
   return new BatchChangeSet(transformVariadicArgumentToArray(first, rest));
 }
 
-export const defaultMovieServicePath = '/odata/v4';
+export const defaultMovieServicePath = '/odata/v4/movie';
 export type ReadMovieServiceRequestBuilder<
   DeSerializersT extends DeSerializers
 > =

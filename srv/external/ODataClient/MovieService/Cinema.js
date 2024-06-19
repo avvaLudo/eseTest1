@@ -23,7 +23,7 @@ Cinema._entityName = 'Cinema';
 /**
  * Default url path for the according service.
  */
-Cinema._defaultBasePath = '/odata/v4';
+Cinema._defaultBasePath = '/odata/v4/movie';
 /**
  * All key fields of the Cinema entity
  */

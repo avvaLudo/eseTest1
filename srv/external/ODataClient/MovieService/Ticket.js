@@ -23,7 +23,7 @@ Ticket._entityName = 'Ticket';
 /**
  * Default url path for the according service.
  */
-Ticket._defaultBasePath = '/odata/v4';
+Ticket._defaultBasePath = '/odata/v4/movie';
 /**
  * All key fields of the Ticket entity
  */
