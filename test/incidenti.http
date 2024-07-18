@@ -2,6 +2,7 @@
 
 GET {{server}}/odata/v4/processor/Incidenti
 Authorization: Basic utente:1234
+
 ###
 POST {{server}}/odata/v4/processor/Incidenti
 Authorization: Basic utente:1234
@@ -15,6 +16,8 @@ Content-Type: application/json
     "status":"Aperto",
     "priority":"media"
 }
+
+
 ###
 PATCH  {{server}}/odata/v4/processor/Incidenti/11
 Authorization: Basic utente:1234
@@ -26,7 +29,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{server}}/odata/v4/processor/Incidenti/22
+DELETE {{server}}/odata/v4/processor/Incidenti/50
 Authorization: Basic utente:1234
 
 
@@ -144,5 +147,318 @@ Content-Type: application/json;IEEE754Compatible=true
 
     "MovieID": "250"
 
+}
+
+###
+POST {{server}}/odata/v4/processor/testMail
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+###
+POST {{server}}/odata/v4/processor/testPdf
+Authorization: Basic utente:1234
+Content-Type: application/json;IEEE754Compatible=true
+
+{
+    "OrderNumbers": [1024019178,1024019160,1010007543,1000058585,1000058587,1000058599,1000058657]
+}
+
+### funzione commentata
+PUT {{server}}/odata/v4/processor/Incidenti/50
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    "status":"aperto"
+}
+
+
+### funzione commentata
+GET {{server}}/odata/v4/processor/Incidenti
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+
+### .on.before.after corretti
+POST {{server}}/odata/v4/processor/Incidenti
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    "ID": 222,
+    "title": "prova query",
+    "description": "prego la madonna che vada",
+    "status": "aperto",
+    "priority": "alta"
+}
+
+###
+GET {{server}}/odata/v4/processor/Persone
+Authorization: Basic utente:1234
+
+###
+GET {{server}}/odata/v4/processor/leggiTutti()
+Authorization: Basic utente:1234
+
+###
+POST {{server}}/odata/v4/processor/newTransaction
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    "ID": 116,
+    "title": "annegamento",
+    "description": "persona in mare aperto",
+    "status": "aperto",
+    "priority": "alta"
+}
+
+###
+POST {{server}}/odata/v4/processor/newTransaction2
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    "ID": 119,
+    "title": "nebbia",
+    "description": "nebbia fitta",
+    "status": "aperto",
+    "priority": "bassa"
+}
+
+
+
+
+
+###
+POST {{server}}/odata/v4/processor/inserimentoPersona
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    "pID": 12,
+    "nome": "Stefano",
+    "cognome": "Mung",
+    "idIncidenti": 50
+}
+
+###
+POST {{server}}/odata/v4/processor/leggiPersoneIncidente
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    "idIncidenti":30
+}
+
+###
+POST {{server}}/odata/v4/processor/getDescrizioneIncidentePerPersona
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+    "pID":2
+}
+
+###
+GET {{server}}/odata/v4/processor/IncidentiPersone
+Authorization: Basic utente:1234
+
+###
+GET {{server}}/odata/v4/processor/getPersoneIncidentiAperti()
+Authorization: Basic utente:1234
+
+
+###
+DELETE {{server}}/odata/v4/processor/Persone/3
+Authorization: Basic utente:1234
+
+
+
+
+
+
+
+
+
+
+###
+POST {{server}}/odata/v4/processor/Libro
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "lID":4,
+  "titolo": "Il Signore degli Cammelli",
+  "anno": 2000,
+  "pagine": 1220
+}
+
+
+###
+PUT {{server}}/odata/v4/processor/Libro/1
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "titolo": "Il Signore degli Righelli",
+  "anno": 1954,
+  "pagine": 1220
+}
+
+###
+DELETE {{server}}/odata/v4/processor/Libro/1
+Authorization: Basic utente:1234
+
+###
+GET {{server}}/odata/v4/processor/Libro
+Authorization: Basic utente:1234
+
+
+###
+POST {{server}}/odata/v4/processor/Autore
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "aID":1,
+  "nome": "J.R.R. Tolkien"
+}
+
+
+###
+PUT {{server}}/odata/v4/processor/Autore/1
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "nome": "Froto"
+}
+
+###
+DELETE {{server}}/odata/v4/processor/Autore/1
+Authorization: Basic utente:1234
+
+###
+GET {{server}}/odata/v4/processor/Autore
+Authorization: Basic utente:1234
+
+
+###
+POST {{server}}/odata/v4/processor/Archivio
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "autore_aID":{
+    "aID": 2
+  },
+  "libro_lID":{
+    "lID": 4
+  }
+}
+
+###
+PUT {{server}}/odata/v4/processor/Archivio/1/1
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "autore_aID":{
+    "nome":"fabio volo"
+  },
+  "libro_lID":{
+    "titolo": "Siringhe",
+    "anno":2000,
+    "pagine": 1000
+  }
+}
+
+###STAMPA dati autore e dati libro di autore con id =1 e libro con id=1 
+GET {{server}}/odata/v4/processor/Archivio(autore_aID_aID=1,libro_lID_lID=1)?$expand=autore_aID,libro_lID
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+
+###
+DELETE  {{server}}/odata/v4/processor/Archivio/2/4
+Authorization: Basic utente:1234
+
+###
+GET {{server}}/odata/v4/processor/Archivio
+Authorization: Basic utente:1234
+
+
+###Ritorna tutti i libri di un autore
+GET {{server}}/odata/v4/processor/Archivio?$filter=autore_aID/aID eq 1&$expand=libro_lID
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+###Ritorna tutti gli autori di un libro
+GET {{server}}/odata/v4/processor/Archivio?$filter=libro_lID/lID eq 3&$expand=autore_aID
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+###Conta tutti i libri scritti da un determinato autore
+GET {{server}}/odata/v4/processor/Archivio/$count?$filter=autore_aID/aID eq 1
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+###SELEZIONO SOLO DETERMINATI CAMPI DA VEDERE DI UN LIBRO
+GET {{server}}/odata/v4/processor/Libro?$select=titolo,pagine
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+###Stampa solo il valore di un campo senza il nome del campo
+GET {{server}}/odata/v4/processor/Libro(1)/pagine/$value
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+###Stampa i libri ordinati in modo decrescente di id
+GET {{server}}/odata/v4/processor/Libro?$orderby=lID desc
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+###Specifica il numero massimo di occorrenze da stampare
+GET {{server}}/odata/v4/processor/Libro?$top=2
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+###Aggiungere un nuovo libro ed associarlo ad un autore già esistente
+POST {{server}}/odata/v4/processor/Libro
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "lID": 5,
+  "titolo": "Nuovo Libro Complesso",
+  "anno": 2024,
+  "pagine": 300,
+  "autore": [
+    {
+      "autore_aID_aID": 1
+    }
+  ]
+}
+
+###Recuperare tutti gli Autori che hanno scritto un Libro in un determinato anno
+GET {{server}}/odata/v4/processor/Autore?$expand=libro($filter=libro_lID/anno eq 1955)
+Authorization: Basic utente:1234
+
+### Recuperare tutti i Libri e gli Autori associati con pagine più di un certo numero
+GET {{server}}/odata/v4/processor/Libro?$filter=pagine gt 1200&$expand=autore
+Authorization: Basic utente:1234
+
+###Stampa dati autore e libro con id=1 fissato(tramite funzione)
+GET {{server}}/odata/v4/processor/stampaALByID()
+Authorization: Basic utente:1234
+
+###Stampa tutti i libri di un autore(tramite action)
+POST {{server}}/odata/v4/processor/stampaLByAutore
+Authorization: Basic utente:1234
+Content-Type: application/json
+
+{
+  "autore_aID":1
 }
 

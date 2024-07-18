@@ -1,4 +1,4 @@
-const client = require ('@sap-cloud-sdk/http-client');;
+const client = require ('@sap-cloud-sdk/http-client');
 const connectivity = require ('@sap-cloud-sdk/connectivity');
 
 

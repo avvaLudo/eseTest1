@@ -1,3 +1,6 @@
 ID,title,description,status,priority
-11,Incendio,incendio macchina,Aperto,Alta
-24,Alluvione,alluvione marche,chiuso,bassa
+11,Incendio,incendio macchina,aperto,alta
+24,Alluvione,alluvione marche,chiuso,media
+30,Pericolo,Albero spezzato,aperto,media
+45,Allagamento,Scantinati allagati,aperto,altissima
+50,Incidente,Incidente stradale,aperto,alta
